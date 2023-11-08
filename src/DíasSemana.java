@@ -10,43 +10,42 @@ public class DíasSemana {
 		while (mes < 12) {
 
 			if (mes == 0) {
-				System.out.print("Enero. ");
-			
+				System.out.print("Enero.      ");
+
 			} else if (mes == 1) {
-				System.out.print("Febrero. ");
-			
+				System.out.print("Febrero.    ");
+
 			} else if (mes == 2) {
-				System.out.print("Marzo. ");
-			
+				System.out.print("Marzo.      ");
+
 			} else if (mes == 3) {
-				System.out.print("Abril. ");
-			
+				System.out.print("Abril.      ");
+
 			} else if (mes == 4) {
-				System.out.print("Mayo. ");
-			
+				System.out.print("Mayo.       ");
+
 			} else if (mes == 5) {
-				System.out.print("Junio. ");
-			
+				System.out.print("Junio.      ");
+
 			} else if (mes == 6) {
-				System.out.print("Julio. ");
-			
+				System.out.print("Julio.      ");
+
 			} else if (mes == 7) {
-				System.out.print("Agosto. ");
-			
+				System.out.print("Agosto.     ");
+
 			} else if (mes == 8) {
 				System.out.print("Septiembre. ");
-			
+
 			} else if (mes == 9) {
-				System.out.print("Octubre. ");
-			
+				System.out.print("Octubre.    ");
+
 			} else if (mes == 10) {
-				System.out.print("Noviembre. ");
-			
+				System.out.print("Noviembre.  ");
+
 			} else if (mes == 11) {
-				System.out.print("Diciembre. ");
+				System.out.print("Diciembre.  ");
+
 			}
-			
-			
 
 			while (semana < 4) {
 
@@ -74,21 +73,23 @@ public class DíasSemana {
 
 					} else if (díaSemana == 6) {
 						System.out.print("D");
+					
 					}
-
-					díaSemana = díaSemana + 1;
+                     díaSemana = díaSemana + 1;
 
 				}
-				System.out.print("] ");
+				 System.out.print("] ");
 
-				semana = semana + 1;
+				 semana = semana + 1;
 
-				díaSemana = 0;
+				 díaSemana = 0;
 
 			}
-			System.out.println();
-			semana = 0;
-			mes = mes + 1;
+			 System.out.println();
+			 
+			 semana = 0;
+			 
+			 mes = mes + 1;
 		}
 	}
 }
