@@ -11,7 +11,7 @@ public class abecedario {
 		do {
 
 			System.out.print((char) i + (" "));
-			i = i + 1;
+			i++;
 
 		} while (i < 97 + 26);
 
