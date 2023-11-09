@@ -1,13 +1,34 @@
+import java.util.Scanner;
 
 public class DíasSemana {
-
-	public static void main(String[] args) {
+	
+     public static void main(String[] args) {
 
 		int mes = 0;
 		int semana = 0;
 		int díaSemana = 0;
-
-		while (mes < 12) {
+		int num = 0;
+		Scanner teclado = new Scanner (System.in);
+		int mesCompleto = 0;
+		
+		
+		 do {  
+			 System.out.print("Introduzca un número correcto");
+		num = teclado.nextInt();
+		
+		
+		    } while (336 < num || num < 1);
+		 
+		 mesCompleto = num / 28;
+		 
+		 
+		 
+		 
+	
+		    
+			
+		
+        while (mes < mesCompleto) {
 
 			if (mes == 0) {
 				System.out.print("ENERO.      ");
