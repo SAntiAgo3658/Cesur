@@ -51,17 +51,22 @@ public class ContadorInverso { // [1200...620] de 20 en 20 (while, do while y fo
 
 		System.out.print("[");
 
-
 		while (numMax >= numMin) {
+			
+			
+				
+				
+			p++;
 			System.out.print(numMax + ", ");
 			numMax = numMax - salto;
+			if (p % 10 == 0) {
+				System.out.println();
+			}
 		}
 		
-		do {
-			System.out.print(numMax + ", ");
-			numMax = numMax - salto;
-			
-		} while (numMax >= numMin);
-
+		
+		
+		
+		System.out.print("]");
 	}
 }
