@@ -9,6 +9,7 @@ public class OrdenNúmeros {
 		int a = 0;
 		int b = 0;
 		int c = 0;
+		int d = 0; // descendente o ascendente.
 
 		System.out.println("Introduzca tres números");
 
@@ -16,47 +17,102 @@ public class OrdenNúmeros {
 		b = teclado.nextInt();
 		c = teclado.nextInt();
 
-		if (a >= b) {
+		do {
+			System.out.print("pulse 1 para orden descendente ó 2 para orden ascendente");
+			d = teclado.nextInt();
 
-			if (a >= c) {
-				System.out.print(a + " ");
+		} while ((d != 1) && (d != 2));
 
-				if (b >= c) {
-					System.out.print(b + " ");
-					System.out.print(c);
+		if (d == 1) {
 
-				} else if (c > b) {
-					System.out.print(c + " ");
-					System.out.print(b);
-				
-				}
-
-			} else if (c > a) {
-				System.out.print(c + " ");
-				System.out.print(a + " ");
-				System.out.print(b);
-			}
-		
-		} else if (b > a) {
-
-			if (b >= c) {
-				System.out.print(b + " ");
+			if (a >= b) {
 
 				if (a >= c) {
 					System.out.print(a + " ");
-					System.out.print(c);
+
+					if (b >= c) {
+						System.out.print(b + " ");
+						System.out.print(c);
+
+					} else if (c > b) {
+						System.out.print(c + " ");
+						System.out.print(b);
+
+					}
 
 				} else if (c > a) {
 					System.out.print(c + " ");
-					System.out.print(a);
-
+					System.out.print(a + " ");
+					System.out.print(b);
 				}
-			
-			} else if (c > b) {
-				System.out.print(c + " ");
-				System.out.print(b + " ");
-				System.out.print(a);
+
+			} else if (b > a) {
+
+				if (b >= c) {
+					System.out.print(b + " ");
+
+					if (a >= c) {
+						System.out.print(a + " ");
+						System.out.print(c);
+
+					} else if (c > a) {
+						System.out.print(c + " ");
+						System.out.print(a);
+
+					}
+
+				} else if (c > b) {
+					System.out.print(c + " ");
+					System.out.print(b + " ");
+					System.out.print(a);
+				}
 			}
+
+		} else if (d == 2) {
+
+			if (a <= b) {
+
+				if (a <= c) {
+					System.out.print(a + " ");
+
+					if (b <= c) {
+						System.out.print(b + " ");
+						System.out.print(c);
+
+					} else if (c < b) {
+						System.out.print(c + " ");
+						System.out.print(b);
+
+					}
+
+				} else if (c < a) {
+					System.out.print(c + " ");
+					System.out.print(a + " ");
+					System.out.print(b);
+				}
+
+			} else if (b < a) {
+
+				if (b <= c) {
+					System.out.print(b + " ");
+
+					if (a <= c) {
+						System.out.print(a + " ");
+						System.out.print(c);
+
+					} else if (c < a) {
+						System.out.print(c + " ");
+						System.out.print(a);
+
+					}
+
+				} else if (c < b) {
+					System.out.print(c + " ");
+					System.out.print(b + " ");
+					System.out.print(a);
+				}
+			}
+
 		}
 
 	}
