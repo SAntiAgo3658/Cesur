@@ -80,7 +80,7 @@ public class Arrays {
 			}
 		}
 		
-		for (int i = 0; i < numPares; i++) {
+		for (int i = 0; i < listaPares.length; i++) {
 			listaInteger[i] = listaPares[i];
 		}
 		
