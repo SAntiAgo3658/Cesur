@@ -13,14 +13,14 @@ public class Arrays {
 		int[] listaImpares;
 		int x;
 		int p;
-		int tmp = 0;
+		int tmp;
 		int m;
-		
-		System.out.print("El array inicial es: [");
+
+		System.out.print("El array inicial es: [  ");
 
 		for (int i = 0; i < listaInteger.length; i++) {
-			listaInteger[i] = aleatorio.nextInt();
-			System.out.print(listaInteger[i] + " ");
+			listaInteger[i] = aleatorio.nextInt(1000);
+			System.out.print(listaInteger[i] + "  ");
 			if ((listaInteger[i] % 2) == 0) {
 				numPares = numPares + 1;
 
@@ -30,41 +30,40 @@ public class Arrays {
 			}
 
 		}
-
+		
 		System.out.println("]");
-		System.out.println("Número de pares: " + numPares);
+        System.out.println("Número de pares: " + numPares);
 		System.out.println("Número de impares: " + numImpares);
 		listaPares = new int[numPares];
 		listaImpares = new int[numImpares];
 		x = 0;
 		p = 0;
-		
-		System.out.print("El array de pares es: [");
+
+		System.out.print("El array de pares es: [  ");
 
 		for (int i = 0; i < listaInteger.length; i++) {
-			
+
 			if ((listaInteger[i] % 2) == 0) {
 				listaPares[x] = listaInteger[i];
-				System.out.print(listaPares[x] + " ");
+				System.out.print(listaPares[x] + "  ");
 				x++;
 
 			}
-			
-		}
-			
-			System.out.println("]");
 
-		System.out.print("El array de impares es: [");
+		}
 		
+		System.out.println("]");
+        System.out.print("El array de impares es: [  ");
+
 		for (int i = 0; i < listaInteger.length; i++) {
-			
+
 			if ((listaInteger[i] % 2) != 0) {
 				listaImpares[p] = listaInteger[i];
-				System.out.print(listaImpares[p] + " ");
+				System.out.print(listaImpares[p] + "  ");
 				p++;
-				
+
 			}
-			
+
 		}
 		
 		System.out.println("]");
@@ -106,6 +105,22 @@ public class Arrays {
 			listaInteger[i] = listaImpares[m];
 			m++;
 		}
+
+		System.out.print("El array inicial ordenado es: ");
+
+		imprimirArrays(listaInteger);
+
+	}
+
+	static void imprimirArrays(int[] array) {
+
+		System.out.print("[  ");
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + "  ");
+
+		}
+
+		System.out.println("]");
 
 	}
 
