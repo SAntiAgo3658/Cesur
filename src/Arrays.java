@@ -15,14 +15,12 @@ public class Arrays {
 		int p;
 		int tmp = 0;
 		int m;
+		
+		System.out.print("El array inicial es: [");
 
 		for (int i = 0; i < listaInteger.length; i++) {
 			listaInteger[i] = aleatorio.nextInt();
-
-		}
-
-		for (int i = 0; i < listaInteger.length; i++) {
-
+			System.out.print(listaInteger[i] + " ");
 			if ((listaInteger[i] % 2) == 0) {
 				numPares = numPares + 1;
 
@@ -33,25 +31,43 @@ public class Arrays {
 
 		}
 
-		System.out.println(numPares);
-		System.out.println(numImpares);
+		System.out.println("]");
+		System.out.println("Número de pares: " + numPares);
+		System.out.println("Número de impares: " + numImpares);
 		listaPares = new int[numPares];
 		listaImpares = new int[numImpares];
 		x = 0;
 		p = 0;
+		
+		System.out.print("El array de pares es: [");
 
 		for (int i = 0; i < listaInteger.length; i++) {
+			
 			if ((listaInteger[i] % 2) == 0) {
 				listaPares[x] = listaInteger[i];
+				System.out.print(listaPares[x] + " ");
 				x++;
 
-			} else {
-				listaImpares[p] = listaInteger[i];
-				p++;
-
 			}
-
+			
 		}
+			
+			System.out.println("]");
+
+		System.out.print("El array de impares es: [");
+		
+		for (int i = 0; i < listaInteger.length; i++) {
+			
+			if ((listaInteger[i] % 2) != 0) {
+				listaImpares[p] = listaInteger[i];
+				System.out.print(listaImpares[p] + " ");
+				p++;
+				
+			}
+			
+		}
+		
+		System.out.println("]");
 
 		for (int i = 0; i < listaPares.length; i++) {
 
@@ -79,18 +95,18 @@ public class Arrays {
 				}
 			}
 		}
-		
+
 		for (int i = 0; i < listaPares.length; i++) {
 			listaInteger[i] = listaPares[i];
 		}
-		
+
 		m = 0;
-		
+
 		for (int i = numPares; i < listaInteger.length; i++) {
 			listaInteger[i] = listaImpares[m];
 			m++;
 		}
-		
+
 	}
 
 }
