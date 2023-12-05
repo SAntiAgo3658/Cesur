@@ -50,27 +50,33 @@ public class AlumnoCesur {
 		System.out.println("Los alumnos de DAM son: ");
 
 		for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
-			
+
 			if (premiumPlus.getAlumnos()[i].getCurso() == "DAM") {
 				System.out.println(premiumPlus.getAlumnos()[i]);
-				
+
 			}
 		}
-		
+
 		System.out.println();
 		System.out.println();
 		System.out.println();
 		System.out.println("Los alumnos de DAW son: ");
-		
-        for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
-			
+
+		for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
+
 			if (premiumPlus.getAlumnos()[i].getCurso() == "DAW") {
 				System.out.println(premiumPlus.getAlumnos()[i]);
-				
+
 			}
 		}
-        
-       
+
+		premiumPlus.delete(janhin.getNombre());
+		System.out.println(premiumPlus);
+
+		for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
+			System.out.println(premiumPlus.getAlumnos()[i]);
+
+		}
 
 	}
 }
@@ -123,7 +129,7 @@ class Alumno {
 
 	}
 
-} // fin clase Alumno
+} // fin class Alumno
 
 class Clase {
 
@@ -188,15 +194,26 @@ class Clase {
 		return "[" + nombre + ", NumAlumnos: " + numAlumnos + "]";
 
 	}
-	
-	public void delete(String nombreAlumno) {
-		
-	   for (int i = 0; i < numAlumnos; i++) {
-		   if (alumnos[i].getNombre() == nombreAlumno ) {
-				
 
+	public void delete(String nombreAlumno) {
+
+		int i = 0;
+		while ((i < numAlumnos) && !(alumnos[i].getNombre().equals(nombreAlumno))) {
+			i++;
+
+		}
+
+		if (!(i == numAlumnos)) {
+
+			for (int x = i; x < numAlumnos - 1; x++) {
+				alumnos[x] = alumnos[x + 1];
 			}
-	   }
+
+			alumnos[numAlumnos - 1] = null;
+
+			numAlumnos--;
+
+		}
 	}
 
-} // fin clase Clase
+} // fin class Clase
