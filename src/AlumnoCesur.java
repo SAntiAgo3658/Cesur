@@ -16,6 +16,7 @@ public class AlumnoCesur {
 		Alumno joséRamón = new Alumno("José Ramón", 39, "DAM");
 		Alumno juanCarlos = new Alumno("Juan Carlos", 24, "DAM");
 		Alumno darío = new Alumno("Darío", 18, "DAM");
+		Alumno barranquero = new Alumno("Barranquero", 26, "DAW");
 
 		Clase premiumPlus = new Clase("Premium Plus");
 		premiumPlus.add(darío);
@@ -30,14 +31,48 @@ public class AlumnoCesur {
 		premiumPlus.add(álvaro);
 		premiumPlus.add(joséRamón);
 		premiumPlus.add(juanCarlos);
+		premiumPlus.add(barranquero);
 		System.out.println(premiumPlus);
-		
-		for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
-		System.out.println(premiumPlus.getAlumnos()[i]); 
-		
-		}
-	}
 
+		for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
+			System.out.println(premiumPlus.getAlumnos()[i]);
+
+			if (premiumPlus.getAlumnos()[i].getNombre() == "Darío") {
+				darío.setEdad(17);
+
+			}
+
+		}
+
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println("Los alumnos de DAM son: ");
+
+		for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
+			
+			if (premiumPlus.getAlumnos()[i].getCurso() == "DAM") {
+				System.out.println(premiumPlus.getAlumnos()[i]);
+				
+			}
+		}
+		
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println("Los alumnos de DAW son: ");
+		
+        for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
+			
+			if (premiumPlus.getAlumnos()[i].getCurso() == "DAW") {
+				System.out.println(premiumPlus.getAlumnos()[i]);
+				
+			}
+		}
+        
+       
+
+	}
 }
 
 class Alumno {
@@ -153,5 +188,7 @@ class Clase {
 		return "[" + nombre + ", NumAlumnos: " + numAlumnos + "]";
 
 	}
+	
+	
 
 } // fin clase Clase
