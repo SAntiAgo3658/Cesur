@@ -11,7 +11,7 @@ public class Frases {
 		Scanner teclado = new Scanner(System.in);
 
 		for (int i = 0; i < CANTIDAD; i++) {
-			System.out.println("Escribe una cadena de caracteres para la posición: " + i);
+			System.out.println("Escribe una cadena de caracteres para la posición; " + i);
 			setValue(cadenas, i, teclado.nextLine());
 
 		}
