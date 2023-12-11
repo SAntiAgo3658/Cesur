@@ -1,5 +1,7 @@
 package alumnoCesur;
 
+import practicas.Creator;
+
 public class AlumnoCesur {
 
 	public static void main(String[] args) {
@@ -77,6 +79,18 @@ public class AlumnoCesur {
 		for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
 			System.out.println(premiumPlus.getAlumnos()[i]);
 
+		}
+		
+	
+
+		for (int i = 0; i < Clase.getTotalalumnos(); i++) {
+			premiumPlus.add(new Alumno(Creator.newName(), Creator.newAge(), "Dam"));
+
+		}
+		
+		for (int i = 0; i < Clase.getTotalalumnos(); i++) {
+			System.out.println(premiumPlus.getAlumnos()[i]);
+			
 		}
 
 	}

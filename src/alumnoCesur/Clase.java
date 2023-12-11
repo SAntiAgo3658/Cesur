@@ -6,11 +6,22 @@ class Clase {
 	private Alumno[] alumnos;
 	private static int TOTALALUMNOS = 15;
 	private String nombre;
+	private Profesor profesor;
 
 	public Clase(String nombre) {
 		alumnos = new Alumno[TOTALALUMNOS];
 		numAlumnos = 0;
 		this.nombre = nombre;
+
+	}
+
+	public Profesor getProfesor() {
+		return profesor;
+
+	}
+
+	public void setProfesor(Profesor profesor) {
+		this.profesor = profesor;
 
 	}
 
@@ -60,29 +71,54 @@ class Clase {
 	}
 
 	public String toString() {
-		return "[" + nombre + ", NumAlumnos: " + numAlumnos + "]";
+		return "[Clase: " + nombre + "Profesor: " + profesor + ", NumAlumnos: " + numAlumnos + "]";
 
 	}
 
 	public void delete(String nombreAlumno) {
 
 		int i = 0;
-		while ((i < numAlumnos) && !(alumnos[i].getNombre().equals(nombreAlumno))) {
+		while ((i < alumnos.length) && !(alumnos[i].getNombre().equals(nombreAlumno))) {
 			i++;
 
 		}
 
-		if (!(i == numAlumnos)) {
+		if (i < alumnos.length) {
+			numAlumnos--;
 
 			for (int x = i; x < numAlumnos - 1; x++) {
 				alumnos[x] = alumnos[x + 1];
 			}
 
-			alumnos[numAlumnos - 1] = null;
-
-			numAlumnos--;
+			alumnos[numAlumnos] = null;
 
 		}
+	}
+	
+	public void delete(Alumno alumno) {
+		
+		Alumno[] alumnosTemp = new Alumno[TOTALALUMNOS];
+		int numAlumTemp = 0;
+		
+		for (int i = 0; i < numAlumnos; i++) {
+			
+			if (alumnos[i] != alumno) {
+				alumnosTemp[numAlumTemp] = alumnos[i];
+				numAlumTemp++;
+				
+			}
+			
+		}
+		
+		if (numAlumTemp < numAlumnos) {
+			alumnos = alumnosTemp;
+			numAlumnos--;
+			
+		} else {
+			System.out.println("El alumno seleccionado no se encuentra en esta clase");
+			
+		}
+		
 	}
 
 } // fin class Clase
