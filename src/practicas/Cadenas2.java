@@ -1,17 +1,17 @@
+package practicas;
 
 public class Cadenas2 {
 
 	public static void main(String[] args) {
-        
+
 		String cadena = "hola";
 		boolean verdad = true;
-		
+
 		System.out.println(uneCadenas("hola", "mundo"));
 		cadena = pasoCadena(cadena, verdad);
 		System.out.println(cadena);
 		System.out.println(numOcurrenciasChar("calabaza", 'a'));
-		System.out.print(uneCadenas("hola", "Javier"));
-		System.out.println(uneCadenas("hola", "David"));
+		System.out.print(uneCadenas("hola", uneCadenas("hola", uneCadenas("adiós", "adiós"))));
 
 	}
 
@@ -48,5 +48,7 @@ public class Cadenas2 {
 		return num;
 
 	}
+	
+
 
 }

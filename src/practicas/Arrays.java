@@ -1,3 +1,4 @@
+package practicas;
 import java.util.Random;
 
 public class Arrays {
@@ -21,6 +22,7 @@ public class Arrays {
 		for (int i = 0; i < listaInteger.length; i++) {
 			listaInteger[i] = aleatorio.nextInt(1000);
 			System.out.print(listaInteger[i] + "  ");
+			
 			if ((listaInteger[i] % 2) == 0) {
 				numPares = numPares + 1;
 
@@ -30,10 +32,11 @@ public class Arrays {
 			}
 
 		}
-		
+
 		System.out.println("]");
-        System.out.println("Número de pares: " + numPares);
+		System.out.println("Número de pares: " + numPares);
 		System.out.println("Número de impares: " + numImpares);
+		
 		listaPares = new int[numPares];
 		listaImpares = new int[numImpares];
 		x = 0;
@@ -51,9 +54,9 @@ public class Arrays {
 			}
 
 		}
-		
+
 		System.out.println("]");
-        System.out.print("El array de impares es: [  ");
+		System.out.print("El array de impares es: [  ");
 
 		for (int i = 0; i < listaInteger.length; i++) {
 
@@ -65,7 +68,7 @@ public class Arrays {
 			}
 
 		}
-		
+
 		System.out.println("]");
 
 		for (int i = 0; i < listaPares.length; i++) {
@@ -112,7 +115,7 @@ public class Arrays {
 
 	}
 
-	static void imprimirArrays(int[] array) {
+	public static void imprimirArrays(int[] array) {
 
 		System.out.print("[  ");
 		for (int i = 0; i < array.length; i++) {

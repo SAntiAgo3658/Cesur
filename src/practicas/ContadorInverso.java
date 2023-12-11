@@ -1,3 +1,4 @@
+package practicas;
 import java.util.Scanner;
 
 public class ContadorInverso { // [1200...620] de 20 en 20 (while, do while y for)
@@ -49,13 +50,8 @@ public class ContadorInverso { // [1200...620] de 20 en 20 (while, do while y fo
 		System.out.println("Introduzca salto deseado");
 		int salto = teclado.nextInt();
 
-		System.out.print("[");
-
 		while (numMax >= numMin) {
-			
-			
-				
-				
+
 			p++;
 			System.out.print(numMax + ", ");
 			numMax = numMax - salto;
@@ -63,10 +59,6 @@ public class ContadorInverso { // [1200...620] de 20 en 20 (while, do while y fo
 				System.out.println();
 			}
 		}
-		
-		
-		
-		
-		System.out.print("]");
+
 	}
 }

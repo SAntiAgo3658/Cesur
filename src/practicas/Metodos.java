@@ -1,3 +1,4 @@
+package practicas;
 import java.util.Scanner;
 
 public class Metodos {
@@ -18,7 +19,6 @@ public class Metodos {
 	}
 
 	static boolean comprobarEntradas(int max, int min) {
-
 
 		if (max < min) {
 			return false;
@@ -47,11 +47,10 @@ public class Metodos {
 
 		} while (!comprobarValor(max, min, valor));
 
-		System.out.println("el valor " + " entre " + min + " y " + max);
+		System.out.println("el valor está " + "entre " + min + " y " + max);
 		System.out.println(comprobarValor(max, min, valor));
 
 		teclado.close();
 
-		
 	}
 }
