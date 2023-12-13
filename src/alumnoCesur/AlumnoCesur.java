@@ -20,7 +20,7 @@ public class AlumnoCesur {
 			Clase claseTemp = new Clase(nombreClaseTemp);
 			claseTemp.setProfesor(new Profesor(Creator.newName(), Creator.newAge(), nombreClaseTemp));
 
-			for (int x = 0; x < aleatorio.nextInt(Clase.getTotalalumnos()); x++) {
+			for (int x = 0; x < 1 + aleatorio.nextInt(Clase.getTotalalumnos() - 1); x++) {
 				claseTemp.add(new Alumno(Creator.newName(), Creator.newAge(), nombreClaseTemp));
 				System.out.println(claseTemp.getAlumnos()[x]);
 
