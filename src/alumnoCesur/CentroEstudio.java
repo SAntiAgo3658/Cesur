@@ -69,5 +69,10 @@ public class CentroEstudio {
 		return MAXADMIN;
 
 	}
+	
+	public String toString() {
+		return("[Centro: " + nombre + ", CAPACIDAD {Clases: " + MAXCLASES + ", NumAdmin: " + MAXADMIN + "}]");
+		
+	}
 
 }
