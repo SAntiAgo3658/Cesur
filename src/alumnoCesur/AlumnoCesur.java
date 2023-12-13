@@ -59,6 +59,8 @@ public class AlumnoCesur {
 
 			}
 		}
+		
+		premiumPlus.setNumAlumnos(0);
 
 		System.out.println();
 		System.out.println();
@@ -73,24 +75,32 @@ public class AlumnoCesur {
 			}
 		}
 
-		premiumPlus.delete(janhin.getNombre());
+		
 		System.out.println(premiumPlus);
 
 		for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
 			System.out.println(premiumPlus.getAlumnos()[i]);
 
 		}
-		
-	
 
 		for (int i = 0; i < Clase.getTotalalumnos(); i++) {
 			premiumPlus.add(new Alumno(Creator.newName(), Creator.newAge(), "Dam"));
 
 		}
-		
+
 		for (int i = 0; i < Clase.getTotalalumnos(); i++) {
 			System.out.println(premiumPlus.getAlumnos()[i]);
-			
+
+		}
+		
+		System.out.println();
+		System.out.println();
+
+		premiumPlus.delete("Darío");
+
+		for (int i = 0; i < premiumPlus.getNumAlumnos(); i++) {
+			System.out.println(premiumPlus.getAlumnos()[i]);
+
 		}
 
 	}

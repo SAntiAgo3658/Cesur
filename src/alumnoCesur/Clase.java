@@ -78,47 +78,60 @@ class Clase {
 	public void delete(String nombreAlumno) {
 
 		int i = 0;
-		while ((i < alumnos.length) && !(alumnos[i].getNombre().equals(nombreAlumno))) {
-			i++;
+		boolean encontrado = false;
+
+		while (!encontrado && (i < numAlumnos)) {
+
+			if (alumnos[i].getNombre() == nombre) {
+				encontrado = true;
+
+			} else {
+				i++;
+
+			}
 
 		}
 
-		if (i < alumnos.length) {
+		if (encontrado) {
 			numAlumnos--;
 
-			for (int x = i; x < numAlumnos - 1; x++) {
+			for (int x = i; x < numAlumnos; x++) {
 				alumnos[x] = alumnos[x + 1];
 			}
 
 			alumnos[numAlumnos] = null;
 
+		} else {
+			System.out.println("El alumno seleccionado no se encuentra en esta clase");
+
 		}
+
 	}
-	
+
 	public void delete(Alumno alumno) {
-		
+
 		Alumno[] alumnosTemp = new Alumno[TOTALALUMNOS];
 		int numAlumTemp = 0;
-		
+
 		for (int i = 0; i < numAlumnos; i++) {
-			
+
 			if (alumnos[i] != alumno) {
 				alumnosTemp[numAlumTemp] = alumnos[i];
 				numAlumTemp++;
-				
+
 			}
-			
+
 		}
-		
+
 		if (numAlumTemp < numAlumnos) {
 			alumnos = alumnosTemp;
 			numAlumnos--;
-			
+
 		} else {
 			System.out.println("El alumno seleccionado no se encuentra en esta clase");
-			
+
 		}
-		
+
 	}
 
 } // fin class Clase
