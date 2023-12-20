@@ -18,18 +18,19 @@ public class NumeroCifras {
 		} while (num < 0);
 
 		cifraUltima = num % 10;
-	
-        while (num / 10 != 0) {
-        	cifras++;
-        	num = num / 10;
-        }
+
+		while (num / 10 != 0) {
+			cifras++;
+			num = num / 10;
+
+		}
 
 		System.out.println(cifras);
 		System.out.println("Primera cifra: " + num);
 		System.out.println("Última cifra: " + cifraUltima);
 
 		teclado.close();
-		
+
 	}
 
 }
