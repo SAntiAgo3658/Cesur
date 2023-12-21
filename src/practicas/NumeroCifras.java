@@ -7,8 +7,6 @@ public class NumeroCifras {
 	public static void main(String[] args) {
 
 		int num;
-		int cifras = 1;
-		int cifraUltima;
 		Scanner teclado = new Scanner(System.in);
 
 		do {
@@ -17,7 +15,25 @@ public class NumeroCifras {
 
 		} while (num < 0);
 
+		System.out.println("Número de cifras: " + totalCifras(num));
+		System.out.println("Primera cifra: " + primeraCifra(num));
+		System.out.println("Última cifra: " + ultimaCifra(num));
+
+		teclado.close();
+
+	}
+
+	public static int ultimaCifra(int num) {
+
+		int cifraUltima;
 		cifraUltima = num % 10;
+		return cifraUltima;
+
+	}
+
+	public static int totalCifras(int num) {
+
+		int cifras = 1;
 
 		while (num / 10 != 0) {
 			cifras++;
@@ -25,11 +41,13 @@ public class NumeroCifras {
 
 		}
 
-		System.out.println(cifras);
-		System.out.println("Primera cifra: " + num);
-		System.out.println("Última cifra: " + cifraUltima);
+		return cifras;
 
-		teclado.close();
+	}
+
+	public static int primeraCifra(int num) {
+
+		return (num / (int) Math.pow(10, totalCifras(num) - 1));
 
 	}
 
