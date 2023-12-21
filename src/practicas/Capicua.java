@@ -9,34 +9,41 @@ public class Capicua {
 		Scanner teclado = new Scanner(System.in);
 		int num;
 		int numTemp;
+		int numFinal = 0;
+		int digito;
 
-		do {
-			System.out.println("Introduce un número");
-			num = teclado.nextInt();
+		System.out.println("Introduce un número");
+		num = teclado.nextInt();
 
-		} while ((99 > num) || (num > 1000));
+		if ((num / 10) == 0) {
 
-		int num1;
-		int num2;
-		numTemp = num;
-
-		num1 = num % 10;
-
-		num = num / 100;
-
-		num2 = num % 10;
-
-		num = numTemp;
-
-		if (num1 == num2) {
 			System.out.println(num + " es un número capicúa");
 
 		} else {
-			System.out.println(num + " no es un número capicúa");
+
+			numTemp = num;
+
+			do {
+				digito = numTemp % 10;
+				numTemp = numTemp / 10;
+				numFinal = (numFinal + digito) * 10;
+
+			} while (numTemp / 10 != 0);
+
+			numFinal = numFinal + numTemp;
+
+			if (numFinal == num) {
+				System.out.println(num + " es un número capicúa");
+
+			} else {
+				System.out.println(num + " no es un número capicúa");
+
+			}
 
 		}
 
 		teclado.close();
+
 	}
 
 }
