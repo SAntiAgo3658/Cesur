@@ -7,7 +7,18 @@ public class UsoAnimales {
 		Mamifero perro = new Mamifero("perro", 17, true);
 		Insecto hormiga = new Insecto("hormiga", 2, false, true, "oso hormiguero");
 		System.out.println("El animal " + hormiga.getNombre() + " tiene alas? " + hormiga.isAlas());
-		System.out.println(hormiga.getNombre() + "tiene de enemigo a : " + hormiga.getEnemigo().getNombre());
+		System.out.println(hormiga.getNombre() + " tiene de enemigo a : " + hormiga.getEnemigo().getNombre());
+		Insecto atomica = new Insecto(hormiga.getNombre() + " atómica", hormiga.getTmpvida(), hormiga.isAlas(),
+				hormiga.isAntenas(), hormiga.getEnemigo().getNombre());
+		hormiga.setAlas(true);
+		Insecto volantona = hormiga;
+		volantona.setNombre("volantona");
+		System.out.println(hormiga.getNombre() + " tiene alas?: " + hormiga.isAlas());
+		System.out.println(atomica.getNombre() + " tiene alas?: " + atomica.isAlas());
+		System.out.println(volantona.getNombre() + " tiene alas?: " + volantona.isAlas());
+		volantona.setNombre(atomica.getNombre());
+		System.out.println(volantona.getNombre());
+		
 
 	}
 

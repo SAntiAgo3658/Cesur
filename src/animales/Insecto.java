@@ -4,7 +4,7 @@ public class Insecto extends Animal {
 
 	private boolean alas;
 	private boolean antenas;
-	private Enemigo enemigo;
+	private Enemigo[] enemigos;
 
 	public boolean isAlas() {
 		return alas;
@@ -26,21 +26,27 @@ public class Insecto extends Animal {
 
 	}
 
-	public Enemigo getEnemigo() {
-		return enemigo;
-
+	public Enemigo[] getEnemigos() {
+		return enemigos;
+		
 	}
 
-	public void setEnemigo(Enemigo enemigo) {
-		this.enemigo = enemigo;
-
+	public void setEnemigos(String enemigo) {
+		int x = 0;
+		
+		while (enemigos[x] != null) {
+			x++;
+		}
+		
+		enemigos[x] = new Enemigo(enemigo);
+		
 	}
 
-	public Insecto(String nombre, int tmpvida, boolean alas, boolean antenas, String enemigo) {
+	public Insecto(String nombre, int tmpvida, boolean alas, boolean antenas) {
 		super(nombre, tmpvida);
 		this.alas = alas;
 		this.antenas = antenas;
-		this.enemigo = new Enemigo(enemigo);
+		enemigos = new Enemigo[5];
 
 	}
 
@@ -50,15 +56,18 @@ public class Insecto extends Animal {
 
 		public String getNombre() {
 			return nombre;
+
 		}
 
 		public void setNombre(String nombre) {
 			this.nombre = nombre;
+
 		}
 
 		public Enemigo(String nombre) {
 			super();
 			this.nombre = nombre;
+
 		}
 
 	}
