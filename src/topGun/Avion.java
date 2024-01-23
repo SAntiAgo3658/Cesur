@@ -3,18 +3,22 @@ package topGun;
 public class Avion {
 
 	// Atributos.
-	private int idAvion;
+	private final int idAvion;
 	private String modAvion;
 	private int capAvion;
 	private Piloto piloto;
+	private static int contador = 0;
+	private int combustible;
 
 	// Constructor.
-	public Avion(int idAvion, String modAvion, int capAvion, Piloto piloto) {
+	public Avion(String modAvion, int capAvion, Piloto piloto) {
 		super();
-		this.idAvion = idAvion;
+		contador++;
+		this.idAvion = contador;
 		this.modAvion = modAvion;
 		this.capAvion = capAvion;
 		this.piloto = piloto;
+		combustible = 0;
 
 	}
 
@@ -24,8 +28,8 @@ public class Avion {
 
 	}
 
-	public void setIdAvion(int idAvion) {
-		this.idAvion = idAvion;
+	public static int getContador() {
+		return contador;
 
 	}
 
@@ -59,11 +63,25 @@ public class Avion {
 
 	}
 
+	public int getCombustible() {
+		return combustible;
+		
+	}
+	
+    public void consumirCombustible() {
+		combustible = 0;
+	}
+	
+	public void rellenarCombustible() {
+		combustible = 100;
+	}
+
 	// Mostrar avión.
 	public void mostrarAvion() {
-		System.out.println("Avion [idAvion = " + idAvion + ", modAvion = " + modAvion + ", capAvion = " + capAvion + ", ");
+		System.out.println(
+				"Avion [idAvion = " + idAvion + ", modAvion = " + modAvion + ", capAvion = " + capAvion + ", ");
 		piloto.mostrarPiloto();
 
 	}
-
+	
 }

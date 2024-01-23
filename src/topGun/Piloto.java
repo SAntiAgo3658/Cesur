@@ -2,31 +2,33 @@ package topGun;
 
 public class Piloto {
 
-	//Atributos.
+	// Atributos.
 	private int idPiloto;
 	private String nomPiloto;
 	private int horasVueloPiloto;
 	private String rangoPiloto;
+	private static int contador = 0;
 
-	//Constructor.
-	public Piloto(int idPiloto, String nomPiloto, int horasVueloPiloto, String rangoPiloto) {
+	// Constructor.
+	public Piloto(String nomPiloto, int horasVueloPiloto, String rangoPiloto) {
 		super();
-		this.idPiloto = idPiloto;
+		contador++;
+		this.idPiloto = contador;
 		this.nomPiloto = nomPiloto;
 		this.horasVueloPiloto = horasVueloPiloto;
 		this.rangoPiloto = rangoPiloto;
 
 	}
 
-	//Getters y setters.
+	// Getters y setters.
 	public int getIdPiloto() {
 		return idPiloto;
 
 	}
-
-	public void setIdPiloto(int idPiloto) {
-		this.idPiloto = idPiloto;
-
+	
+	public static int getContador() {
+		return contador;
+		
 	}
 
 	public String getNomPiloto() {
@@ -59,11 +61,11 @@ public class Piloto {
 
 	}
 
-	//Mostrar piloto.
+	// Mostrar piloto.
 	public void mostrarPiloto() {
-		 System.out.println("Piloto [idPiloto = " + idPiloto + ", nomPiloto = " + nomPiloto + ", horasVueloPiloto = " + horasVueloPiloto
-				+ ", rangoPiloto = " + rangoPiloto + "]");
-		 
+		System.out.println("Piloto [idPiloto = " + idPiloto + ", nomPiloto = " + nomPiloto + ", horasVueloPiloto = "
+				+ horasVueloPiloto + ", rangoPiloto = " + rangoPiloto + "]");
+
 	}
 
 }
