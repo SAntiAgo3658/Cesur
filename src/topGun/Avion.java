@@ -68,12 +68,12 @@ public class Avion {
 		
 	}
 	
-    public void consumirCombustible() {
-		combustible = 0;
+    public void consumirCombustible(int consumido) {
+		this.combustible = this.combustible - consumido;
 	}
 	
-	public void rellenarCombustible() {
-		combustible = 100;
+	public void rellenarCombustible(int rellenado) {
+		this.combustible = this.combustible + rellenado;
 	}
 
 	// Mostrar avión.
