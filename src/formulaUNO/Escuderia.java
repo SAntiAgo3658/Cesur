@@ -32,40 +32,5 @@ public class Escuderia {
 
 	// GETTERS Y SETTTERS
 	
-	public void construirCoche(Coche coche) {
-		coches.insertarValor(coche);
-		
-	}
-	
-	public void contratarIngeniero(Ingeniero ingeniero) {
-		ingenieros.insertarValor(ingeniero);
-		
-	}
-	
-	public void contratarMecanico(Mecanico mecanico) {
-		mecanicos.insertarValor(mecanico);
-		
-	}
-	
-	public void contratarPiloto(Piloto piloto) {
-		pilotos.insertarValor(piloto);
-		
-	}
-	
-	public void destruirCoche(Coche coche) {
-		
-	}
-	
-	public void despedirIngeniero(Ingeniero ingeniero) {
-		
-	}
-	
-	public void despedirMecanico(Mecanico mecanico) {
-		
-	}
-	
-	public void despedirPiloto(Piloto piloto) {
-		
-	}
 	
 }

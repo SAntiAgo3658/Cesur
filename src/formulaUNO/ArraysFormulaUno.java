@@ -2,7 +2,7 @@ package formulaUNO;
 
 class ArrayCoche {
 	// atributos
-	private Coche[] coches;
+	private Coche[] miArray;
 	private int numElem;
 	private static final int lONGITUD_DEFAULT = 10;
 	private int longitud;
@@ -10,9 +10,9 @@ class ArrayCoche {
 	// constructores
 	ArrayCoche(int longitud) {
 		numElem = 0;
-		coches = new Coche[longitud];
+		miArray = new Coche[longitud];
 		for (int i = 0; i < longitud; i = i + 1) {
-			coches[i] = null;
+			miArray[i] = null;
 
 		}
 
@@ -20,9 +20,9 @@ class ArrayCoche {
 
 	ArrayCoche() {
 		numElem = 0;
-		coches = new Coche[lONGITUD_DEFAULT];
-		for (int i = 0; i < coches.length; i = i + 1) {
-			coches[i] = null;
+		miArray = new Coche[lONGITUD_DEFAULT];
+		for (int i = 0; i < miArray.length; i = i + 1) {
+			miArray[i] = null;
 
 		}
 
@@ -35,13 +35,13 @@ class ArrayCoche {
 	}
 
 	public Coche[] getMiArray() {
-		return coches;
+		return miArray;
 
 	}
 
 	public Coche getIntMiArray(int posicion) {
-		if ((posicion < coches.length) && (posicion >= 0)) {
-			return coches[posicion];
+		if ((posicion < miArray.length) && (posicion >= 0)) {
+			return miArray[posicion];
 
 		} else {
 			return null; // en caso de error al meter la posición
@@ -51,31 +51,70 @@ class ArrayCoche {
 	}
 
 	public void resetear() {
-		for (int i = 0; i < coches.length; i++) {
-			coches[i] = null;
+		for (int i = 0; i < miArray.length; i++) {
+			miArray[i] = null;
 			numElem = 0;
 
 		}
 
 	}
 
-	public void insertarValor(Coche valor) {
-		if (numElem == coches.length) {
+	public void insertarCoche(Coche valor) {
+		if (numElem == miArray.length) {
 			System.out.println("Array lleno, no se ha insertado elemento");
 
 		} else {
-			coches[numElem] = valor;
+			miArray[numElem] = valor;
 			numElem++;
 
 		}
 
 	}
 
-} // cierra MiArray
+	public void destruirCoche(Coche coche) {
+		if (numElem > 0) { // Hay coches en el garaje
+			boolean noEncontrado = true;
+			int contador = 0;
+
+			while ((noEncontrado) && (contador < numElem)) {
+
+				if (miArray[contador] == coche) {
+					noEncontrado = false;
+
+				} else {
+					contador++;
+
+				}
+
+			}
+
+			if (contador == numElem) { // El coche no ha sido encontrado
+				System.out.println("El coche " + coche.getModelo() + " no se encuentra en el garage");
+
+			} else { // Hemos encontrado el coche, lo tengo que borrar
+				numElem--;
+
+				for (int x = contador; x < numElem; x++) {
+					miArray[x] = miArray[x + 1];
+
+				}
+
+				miArray[numElem] = null;
+
+			}
+
+		} else { // Garaje vacío
+			System.out.println("Garaje vacío, no se puede encontrar el coche");
+
+		}
+
+	}
+
+} // cierra arrayCoche
 
 class ArrayPiloto {
 	// atributos
-	private Piloto[] pilotos;
+	private Piloto[] miArray;
 	private int numElem;
 	private static final int lONGITUD_DEFAULT = 10;
 	private int longitud;
@@ -83,9 +122,9 @@ class ArrayPiloto {
 	// constructores
 	ArrayPiloto(int longitud) {
 		numElem = 0;
-		pilotos = new Piloto[longitud];
+		miArray = new Piloto[longitud];
 		for (int i = 0; i < longitud; i = i + 1) {
-			pilotos[i] = null;
+			miArray[i] = null;
 
 		}
 
@@ -93,9 +132,9 @@ class ArrayPiloto {
 
 	ArrayPiloto() {
 		numElem = 0;
-		pilotos = new Piloto[lONGITUD_DEFAULT];
-		for (int i = 0; i < pilotos.length; i = i + 1) {
-			pilotos[i] = null;
+		miArray = new Piloto[lONGITUD_DEFAULT];
+		for (int i = 0; i < miArray.length; i = i + 1) {
+			miArray[i] = null;
 
 		}
 
@@ -108,13 +147,13 @@ class ArrayPiloto {
 	}
 
 	public Piloto[] getMiArray() {
-		return pilotos;
+		return miArray;
 
 	}
 
 	public Piloto getIntMiArray(int posicion) {
-		if ((posicion < pilotos.length) && (posicion >= 0)) {
-			return pilotos[posicion];
+		if ((posicion < miArray.length) && (posicion >= 0)) {
+			return miArray[posicion];
 
 		} else {
 			return null; // en caso de error al meter la posición
@@ -124,8 +163,8 @@ class ArrayPiloto {
 	}
 
 	public void resetear() {
-		for (int i = 0; i < pilotos.length; i++) {
-			pilotos[i] = null;
+		for (int i = 0; i < miArray.length; i++) {
+			miArray[i] = null;
 			numElem = 0;
 
 		}
@@ -133,17 +172,51 @@ class ArrayPiloto {
 	}
 
 	public void insertarValor(Piloto valor) {
-		if (numElem == pilotos.length) {
+		if (numElem == miArray.length) {
 			System.out.println("Array lleno, no se ha insertado elemento");
 		} else {
-			pilotos[numElem] = valor;
+			miArray[numElem] = valor;
 			numElem++;
 
 		}
 
 	}
 
-} // cierra MiArray
+	public void destruirCoche(Piloto piloto) {
+		if (numElem > 0) { // Hay coches en el garaje
+			boolean noEncontrado = true;
+			int contador = 0;
+
+			while ((noEncontrado) && (contador < numElem)) {
+
+				if (miArray[contador] == piloto) {
+					noEncontrado = false;
+
+				} else {
+					contador++;
+
+				}
+
+			}
+
+			if (contador == numElem) { // El coche no ha sido encontrado
+				System.out.println("El coche " + piloto.getNombre() + " no se encuentra en el garage");
+
+			} else { // Hemos encontrado el coche, lo tengo que borrar
+				numElem--;
+
+				for (int x = contador; x < numElem; x++) {
+					miArray[x] = miArray[x + 1];
+
+				}
+
+				miArray[numElem] = null;
+
+			}
+		}
+
+	} // cierra MiArray
+}
 
 class ArrayIngeniero {
 	// atributos
@@ -204,7 +277,7 @@ class ArrayIngeniero {
 
 	}
 
-	public void insertarValor(Ingeniero valor) {
+	public void insertarIngeniero(Ingeniero valor) {
 		if (numElem == ingenieros.length) {
 			System.out.println("Array lleno, no se ha insertado elemento");
 
@@ -276,7 +349,7 @@ class ArrayMecanico {
 
 	}
 
-	public void insertarValor(Mecanico valor) {
+	public void insertarMecanico(Mecanico valor) {
 		if (numElem == mecanicos.length) {
 			System.out.println("Array lleno, no se ha insertado elemento");
 
@@ -288,4 +361,5 @@ class ArrayMecanico {
 
 	}
 
-} // cierra MiArray
+}
+// cierra MiArray
