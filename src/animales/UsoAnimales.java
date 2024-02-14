@@ -1,24 +1,52 @@
 package animales;
 
+import java.util.Random;
+
 public class UsoAnimales {
 
 	public static void main(String[] args) {
 
-		Mamifero perro = new Mamifero("perro", 17, true);
-		Insecto hormiga = new Insecto("hormiga", 2, false, true);
-		System.out.println("El animal " + hormiga.getNombre() + " tiene alas? " + hormiga.isAlas());
-		System.out.println(hormiga.getNombre() + " tiene de enemigo a : " + hormiga.getEnemigos().length);
-		Insecto atomica = new Insecto(hormiga.getNombre() + " atómica", hormiga.getTmpvida(), hormiga.isAlas(),
-				hormiga.isAntenas());
-		hormiga.setAlas(true);
-		Insecto volantona = hormiga;
-		volantona.setNombre("volantona");
-		System.out.println(hormiga.getNombre() + " tiene alas?: " + hormiga.isAlas());
-		System.out.println(atomica.getNombre() + " tiene alas?: " + atomica.isAlas());
-		System.out.println(volantona.getNombre() + " tiene alas?: " + volantona.isAlas());
-		volantona.setNombre(atomica.getNombre());
-		System.out.println(volantona.getNombre());
-		
+		Animal[] animales;
+		animales = new Animal[10];
+
+		int[] enteros = new int[10];
+		Random aleatorio = new Random();
+
+		for (int i = 0; i < enteros.length; i++) {
+			enteros[i] = aleatorio.nextInt(10);
+			System.out.print(enteros[i] + " ");
+
+		}
+
+		System.out.println();
+
+		int numero = aleatorio.nextInt(10);
+		boolean encontrado = false;
+		int i = 0;
+		int cont = 0;
+
+		while ((encontrado == false) && (i < enteros.length)) {
+			if (numero == enteros[i]) {
+				encontrado = true;
+				cont++;
+
+			} else {
+
+				i++;
+
+			}
+
+		}
+
+		if (encontrado) {
+
+			System.out.println("Encontrado " + numero + ": " + encontrado);
+			System.out.println("Número de ocurrencias: " + cont);
+
+		} else {
+			System.out.println("no encontrado");
+
+		}
 
 	}
 

@@ -8,7 +8,6 @@ public class Ingeniero extends Persona {
 
 	private final int INTELIGENCIA;
 	private final int INNOVACION;
-	private int experiencia; // aumenta con las carreras
 
 	// CONSTRUCTOR
 
@@ -39,20 +38,14 @@ public class Ingeniero extends Persona {
 		return INNOVACION;
 
 	}
-
-	public int getExperiencia() {
-		return experiencia;
-
-	}
-
-	public void setExperiencia(int experiencia) {
-		this.experiencia = experiencia;
-
+	
+	public String toString() {
+		return (super.toString() + ", [Inteligencia: " + INTELIGENCIA + ", Innovacion: " + INNOVACION + "]");
 	}
 
 	// devuelve un valor del trabajo entre 0 y 10
 	public int trabajo() {
-		return ((experiencia + INNOVACION + INTELIGENCIA) / 3);
+		return ((getExperiencia() + INNOVACION + INTELIGENCIA) / 3);
 
 	}
 

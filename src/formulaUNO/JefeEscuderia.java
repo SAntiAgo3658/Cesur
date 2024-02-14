@@ -8,7 +8,6 @@ public class JefeEscuderia extends Persona {
 
 	private final int INTELIGENCIA;
 	private final int LIDERAZGO;
-	private int experiencia;
 
 	// CONSTRUCTOR
 
@@ -17,7 +16,6 @@ public class JefeEscuderia extends Persona {
 		Random aleatorio = new Random();
 		this.INTELIGENCIA = aleatorio.nextInt(10);
 		this.LIDERAZGO = aleatorio.nextInt(10);
-		this.experiencia = aleatorio.nextInt(10);
 
 	}
 
@@ -30,16 +28,6 @@ public class JefeEscuderia extends Persona {
 
 	public int getLiderazgo() {
 		return LIDERAZGO;
-
-	}
-
-	public int getExperiencia() {
-		return experiencia;
-
-	}
-
-	public void setExperiencia(int experiencia) {
-		this.experiencia = experiencia;
 
 	}
 
