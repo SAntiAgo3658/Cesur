@@ -67,6 +67,8 @@ public class EjemplosFicheros2 {
 
 		}
 
+		teclado.close();
+
 	}
 
 }
