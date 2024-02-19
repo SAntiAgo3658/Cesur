@@ -106,7 +106,7 @@ public class EjemploFicheros {
 
 				fw.write((int) '\n');
 
-			} while (((meteFrase.charAt(0) != 'Q') || (meteFrase.length() != 1)) && (meteFrase.length() > 0));
+			} while ((meteFrase.charAt(0) != 'Q') || (meteFrase.length() > 1));
 
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
@@ -118,7 +118,7 @@ public class EjemploFicheros {
 			}
 
 		}
-		
+
 		FileReader entrada2 = null;
 		boolean nofin2 = true;
 		char caracter2;
@@ -146,6 +146,48 @@ public class EjemploFicheros {
 		} finally {
 			if (entrada2 != null) {
 				entrada2.close();
+
+			}
+
+		} // Fin try-catch
+
+		FileWriter fw2 = null;
+		FileReader fr = null;
+		char caracter3;
+		boolean nofin3 = true;
+		char[] otroFichero;
+		int contador = 0;
+
+		try {
+			fr = new FileReader("Prueba fichero.txt");
+			fw2 = new FileWriter("Pruebafichero2.txt");
+
+			do {
+				caracter3 = (char) fr.read();
+
+				if (caracter3 == (char) -1) {
+					nofin3 = false;
+
+				} else {
+
+					System.out.print(caracter3);
+					fw2.write(fr.read());
+
+				}
+
+			} while (nofin3);
+
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+
+		} finally {
+			if (fr != null) {
+				fr.close();
+
+			}
+
+			if (fw2 != null) {
+				fw2.close();
 
 			}
 
