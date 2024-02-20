@@ -14,35 +14,21 @@ public class EjemploFicheros {
 
 	public static void main(String[] args) throws IOException {
 
-		// Trabajar con caracteres
-		// Lectura de un fichero: "Prueba fichero.txt"
-		// Escritura de un fichero:
-		// Escritura de un fichero, al final del mismo.
-
-		// Flujo de lectura:
 		FileReader entrada = null;
-		boolean nofin = true;
-		char caracter;
-
 		try {
-			entrada = new FileReader("Prueba fichero.txt");
+			entrada = new FileReader("Prueba Fichero.txt");
+			char caracter = (char) entrada.read();
 
-			do {
+			while (caracter != (char) -1) {
+				System.out.print(caracter);
 				caracter = (char) entrada.read();
 
-				if (caracter == (char) -1) {
-					nofin = false;
+				Scanner teclado = new Scanner(System.in);
 
-				} else {
-
-					System.out.print(caracter);
-
-				}
-
-			} while (nofin);
+			}
 
 		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
+			System.out.println("El fichero no ha sido encontrado");
 
 		} finally {
 			if (entrada != null) {
@@ -50,148 +36,38 @@ public class EjemploFicheros {
 
 			}
 
-		} // Fin try-catch
-
-		FileOutputStream salida = null;
-		String frase = "esto es una prueba de escritura en fichero";
-		char[] fraseArray = new char[frase.length()];
-
-		for (int i = 0; i < frase.length(); i++) {
-			fraseArray[i] = frase.charAt(i);
-
 		}
 
-		try {
-			salida = new FileOutputStream("Prueba fichero.txt");
-
-			for (int i = 0; i < fraseArray.length; i++) {
-				salida.write((int) fraseArray[i]);
-
-			}
-
-		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
-
-		} finally {
-			if (salida != null) {
-				salida.close();
-
-			}
-
-		} // Final try-catch
-
-		System.out.println();
-		System.out.println();
-
-		FileWriter fw = null;
+		entrada = null;
 		Scanner teclado = new Scanner(System.in);
 
 		try {
-			fw = new FileWriter("Prueba fichero.txt", true); // opción append habilitada!
-			String meteFrase;
-			fw.write((int) '\n');
+			entrada = new FileReader("Prueba Fichero.txt");
+			System.out.println("Introduce el número de filas que quiere imprimir");
+			int numFilas = teclado.nextInt();
+			char caracter2 = (char) entrada.read();
 
-			do {
-				System.out.println("Introduzca una frase");
-				meteFrase = teclado.nextLine();
-				System.out.println(meteFrase);
+			while ((caracter2 != (char) -1) && (numFilas != 0)) {
+				System.out.print(caracter2);
+				caracter2 = (char) entrada.read();
 
-				if (meteFrase.length() > 0) {
-					for (int i = 0; i < meteFrase.length(); i++) {
-						fw.write(meteFrase.charAt(i));
-
-					}
+				if (caracter2 == '\n') {
+					numFilas--;
 
 				}
 
-				fw.write((int) '\n');
+			}
 
-			} while ((meteFrase.charAt(0) != 'Q') || (meteFrase.length() > 1));
-
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
+		} catch (FileNotFoundException e) {
+			System.out.println("El fichero no ha sido encontrado");
 
 		} finally {
-			if (fw != null) {
-				fw.close();
+			if (entrada != null) {
+				entrada.close();
 
 			}
 
 		}
-
-		FileReader entrada2 = null;
-		boolean nofin2 = true;
-		char caracter2;
-
-		try {
-			entrada2 = new FileReader("Prueba fichero.txt");
-
-			do {
-				caracter2 = (char) entrada2.read();
-
-				if (caracter2 == (char) -1) {
-					nofin2 = false;
-
-				} else {
-
-					System.out.print(caracter2);
-
-				}
-
-			} while (nofin2);
-
-		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
-
-		} finally {
-			if (entrada2 != null) {
-				entrada2.close();
-
-			}
-
-		} // Fin try-catch
-
-		FileWriter fw2 = null;
-		FileReader fr = null;
-		char caracter3;
-		boolean nofin3 = true;
-		char[] otroFichero;
-		int contador = 0;
-
-		try {
-			fr = new FileReader("Prueba fichero.txt");
-			fw2 = new FileWriter("Pruebafichero2.txt");
-
-			do {
-				caracter3 = (char) fr.read();
-
-				if (caracter3 == (char) -1) {
-					nofin3 = false;
-
-				} else {
-
-					System.out.print(caracter3);
-					fw2.write(fr.read());
-
-				}
-
-			} while (nofin3);
-
-		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
-
-		} finally {
-			if (fr != null) {
-				fr.close();
-
-			}
-
-			if (fw2 != null) {
-				fw2.close();
-
-			}
-
-		} // Fin try-catch
 
 		teclado.close();
 
