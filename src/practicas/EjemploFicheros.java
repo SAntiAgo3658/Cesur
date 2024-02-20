@@ -25,18 +25,23 @@ public class EjemploFicheros {
 			entrada = new BufferedReader(new FileReader("Prueba Fichero.txt"));
 			salida = new BufferedWriter(new FileWriter("Escribirfichero.txt"));
 			salida2 = new PrintWriter(new FileWriter("Pruebafichero2.txt"));
-			String linea;
-			int lineas = 5;
-			
-			
-				while (lineas > 0) {
-					linea = entrada.readLine();
+			String linea = entrada.readLine();
+			int cont = 1;
+
+			while (linea != null) {
+				
+				
+                if (cont % 2 == 0) {
 					salida2.println(linea);
 					salida.write(linea);
-					lineas--;
-				
+					
 				}
 				
+                linea = entrada.readLine();
+                cont++;
+
+			}
+
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 
@@ -45,15 +50,15 @@ public class EjemploFicheros {
 				entrada.close();
 
 			}
-			
+
 			if (salida != null) {
 				salida.close();
-				
+
 			}
-			
+
 			if (salida2 != null) {
 				salida2.close();
-				
+
 			}
 
 		}
