@@ -1,11 +1,16 @@
 package practicas;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
@@ -17,49 +22,36 @@ public class EjemploFicheros {
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedReader entrada = null;
-		BufferedWriter salida = null;
-		PrintWriter salida2 = null;
-
+		DataOutputStream salida = null;
 		try {
-			entrada = new BufferedReader(new FileReader("Prueba Fichero.txt"));
-			salida = new BufferedWriter(new FileWriter("Escribirfichero.txt"));
-			salida2 = new PrintWriter(new FileWriter("Pruebafichero2.txt"));
-			String linea = entrada.readLine();
-			int cont = 1;
-
-			while (linea != null) {
-				
-				
-                if (cont % 2 == 0) {
-					salida2.println(linea);
-					salida.write(linea);
-					
-				}
-				
-                linea = entrada.readLine();
-                cont++;
-
-			}
+			salida = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Escribirfichero.txt")));
+			salida.writeChar('a');
+			salida.writeBoolean(true);
+			salida.writeUTF("Frase en UTF");
 
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 
 		} finally {
-			if (entrada != null) {
-				entrada.close();
-
-			}
-
-			if (salida != null) {
+			if (salida != null)
 				salida.close();
 
-			}
+		}
 
-			if (salida2 != null) {
-				salida2.close();
+		DataInputStream entrada = null;
 
-			}
+		try {
+			entrada = new DataInputStream(new BufferedInputStream(new FileInputStream("Escribirfichero.txt")));
+			System.out.println(entrada.readChar());
+			System.out.println(entrada.readBoolean());
+			System.out.println(entrada.readUTF());
+
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+
+		} finally {
+			if (entrada != null)
+				entrada.close();
 
 		}
 
