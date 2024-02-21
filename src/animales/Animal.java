@@ -1,6 +1,8 @@
 package animales;
 
-public class Animal {
+import java.io.Serializable;
+
+public class Animal implements Serializable {
 
 	private String nombre;
 	private int tmpvida;
@@ -25,7 +27,7 @@ public class Animal {
 
 	}
 
-	protected Animal(String nombre, int tmpvida) {
+	public Animal(String nombre, int tmpvida) {
 
 		this.nombre = nombre;
 

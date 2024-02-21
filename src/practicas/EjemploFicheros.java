@@ -11,6 +11,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
@@ -18,16 +20,21 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 
+import animales.Animal;
+
 public class EjemploFicheros {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-		DataOutputStream salida = null;
+		ObjectOutputStream salida = null;
+		Animal perro = new Animal("Perro", 32);
+		Animal gato = new Animal("Gato", 17);
+
 		try {
-			salida = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Escribirfichero.txt")));
-			salida.writeChar('a');
-			salida.writeBoolean(true);
-			salida.writeUTF("Frase en UTF");
+			salida = new ObjectOutputStream(
+					new BufferedOutputStream(new FileOutputStream("Escribirficheroobjeto.txt")));
+			salida.writeObject(perro);
+			salida.writeObject(gato);
 
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
@@ -38,13 +45,21 @@ public class EjemploFicheros {
 
 		}
 
-		DataInputStream entrada = null;
+		ObjectInputStream entrada = null;
+		
+		Animal generico = perro;
 
 		try {
-			entrada = new DataInputStream(new BufferedInputStream(new FileInputStream("Escribirfichero.txt")));
-			System.out.println(entrada.readChar());
-			System.out.println(entrada.readBoolean());
-			System.out.println(entrada.readUTF());
+			entrada = new ObjectInputStream(new BufferedInputStream(new FileInputStream("Escribirficheroobjeto.txt")));
+			generico = (Animal) entrada.readObject();
+			System.out.println(generico.getNombre());
+			generico = (Animal) entrada.readObject();
+			System.out.println(generico.getNombre());
+			generico.setTmpvida(16);
+			perro.setTmpvida(120);
+			System.out.println(generico.getTmpvida());
+			System.out.println(perro.getTmpvida());
+			System.out.println(gato.getTmpvida());
 
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
