@@ -46,8 +46,7 @@ public class EjemploFicheros {
 		}
 
 		ObjectInputStream entrada = null;
-		
-		Animal generico = perro;
+		Animal generico;
 
 		try {
 			entrada = new ObjectInputStream(new BufferedInputStream(new FileInputStream("Escribirficheroobjeto.txt")));

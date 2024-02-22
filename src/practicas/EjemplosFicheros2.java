@@ -1,5 +1,6 @@
 package practicas;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,65 +10,26 @@ public class EjemplosFicheros2 {
 
 	public static void main(String[] args) throws IOException {
 
-		// pedir una frase por pantalla e intoducirla en el fichero: Prueba Fichero.txt
-		// mostrar por pantalla el contenido del fichero
+		File fichero = null;
+		fichero = new File("pruebaFile");
+		System.out.println(fichero.getAbsolutePath());
+		System.out.println(fichero.getCanonicalPath());
 
-		FileInputStream entrada = null;
-		FileOutputStream salida = null;
-		Scanner teclado = new Scanner(System.in);
-		String contenido;
-		char[] guarda = null;
+		File miDirectorio = null;
+		miDirectorio = new File("C:\\Users\\SantiagoElíasDavidGo\\eclipse-workspace\\DAMCesur");
+		File[] miLista = miDirectorio.listFiles();
 
-		System.out.println("Introduce el contenido");
-		contenido = teclado.nextLine();
-		guarda = new char[contenido.length()];
+		for (int i = 0; i < miLista.length; i++) {
 
-		for (int i = 0; i < guarda.length; i++) {
-			guarda[i] = contenido.charAt(i);
+			if (miLista[i].isDirectory()) {
+				System.out.println("DIRECTORIO:     " + miLista[i].getName());
 
-		}
-
-		try {
-			salida = new FileOutputStream("Prueba Fichero.txt");
-
-			for (int i = 0; i < guarda.length; i++) {
-				salida.write((int) guarda[i]);
-
-			}
-
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-
-		} finally {
-			if (salida != null) {
-				salida.close();
-
+			} else {
+				System.out.println(miLista[i].getName());
+				
 			}
 
 		}
-
-		try {
-			entrada = new FileInputStream("Prueba Fichero.txt");
-			int ascii;
-			ascii = entrada.read();
-			while (ascii != -1) {
-				System.out.print((char) ascii);
-				ascii = entrada.read();
-
-			}
-
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-
-		} finally {
-			if (entrada != null) {
-				entrada.close();
-
-			}
-
-		}
-
-		teclado.close();
 
 	}
 
